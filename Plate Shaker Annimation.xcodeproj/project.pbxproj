@@ -54,11 +54,11 @@
 		0DF8D9572119181100B62F8E /* Plate Shaker Annimation */ = {
 			isa = PBXGroup;
 			children = (
-				0DF8D9582119181100B62F8E /* AppDelegate.swift */,
-				0DF8D95A2119181100B62F8E /* ViewController.swift */,
 				0DF8D95C2119181100B62F8E /* Main.storyboard */,
+				0DF8D95A2119181100B62F8E /* ViewController.swift */,
 				0DF8D95F2119181200B62F8E /* Assets.xcassets */,
 				0DF8D9612119181200B62F8E /* LaunchScreen.storyboard */,
+				0DF8D9582119181100B62F8E /* AppDelegate.swift */,
 				0DF8D9642119181200B62F8E /* Info.plist */,
 			);
 			path = "Plate Shaker Annimation";
