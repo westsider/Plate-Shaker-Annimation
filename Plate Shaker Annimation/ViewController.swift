@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         return bezierPath
     }
     
-    var innerrRim: UIBezierPath{
+    var innerRim: UIBezierPath{
         let bezierPath = UIBezierPath()
         let arcCenter = CGPoint(x: circleView.frame.size.height / 2 , y: circleView.frame.size.width / 2)
         bezierPath.addArc(withCenter: arcCenter, radius: 130.0, startAngle: 0, endAngle: CGFloat(2*Double.pi), clockwise: true)
@@ -37,8 +37,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        plateLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1);
-        shakerLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1);
+        plateLabel.transform = CGAffineTransform(scaleX: 0.01, y: 0.01);
+        shakerLabel.transform = CGAffineTransform(scaleX: 0.01, y: 0.01);
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
                 self.view.layoutIfNeeded()
         }) { (finished) in
             if finished {
-                self.annimateOuterRim()
+               self.annimateInnerRim()
             }
         }
     }
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
         UIView.animate(
             withDuration: 1.0,
-            delay: 0.5,
+            delay: 0.75,
             usingSpringWithDamping: 0.5,
             initialSpringVelocity: 4.0,
             options: [],
@@ -78,9 +78,30 @@ class ViewController: UIViewController {
                 self.view.layoutIfNeeded()
         }) { (finished) in
             if finished {
-                self.annimateInnerRim()
+                //self.annimateInnerRim()
+                self.annimateOuterRim()
             }
         }
+    }
+    
+    func annimateInnerRim() {
+        
+        innerRimLayer.path = innerRim.cgPath
+        
+        let customGreen:CGColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        innerRimLayer.strokeColor = customGreen
+        innerRimLayer.fillColor = UIColor.clear.cgColor
+        innerRimLayer.lineWidth = 2.0
+        innerRimLayer.lineCap = kCALineCapRound
+        circleView.layer.addSublayer(innerRimLayer)
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0.0
+        animation.byValue = 1.0
+        animation.duration = 0.65
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        innerRimLayer.add(animation, forKey: "drawLineAnimation")
     }
     
     func annimateOuterRim() {
@@ -97,30 +118,12 @@ class ViewController: UIViewController {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0.0
         animation.byValue = 1.0
-        animation.duration = 0.5
+        animation.duration = 0.65
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
         outerRimLayer.add(animation, forKey: "drawLineAnimation")
     }
     
-    func annimateInnerRim() {
-        
-        innerRimLayer.path = innerrRim.cgPath
-        
-        let customGreen:CGColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        innerRimLayer.strokeColor = customGreen
-        innerRimLayer.fillColor = UIColor.clear.cgColor
-        innerRimLayer.lineWidth = 2.0
-        innerRimLayer.lineCap = kCALineCapRound
-        circleView.layer.addSublayer(innerRimLayer)
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0.0
-        animation.byValue = 1.0
-        animation.duration = 0.5
-        animation.fillMode = kCAFillModeForwards
-        animation.isRemovedOnCompletion = false
-        innerRimLayer.add(animation, forKey: "drawLineAnimation2")
-    }
+    
 }
 

@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +18,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty Circle" translatesAutoresizingMaskIntoConstraints="NO" id="qx0-4l-DoL">
+                                <rect key="frame" x="37" y="183" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qx0-4l-DoL" secondAttribute="height" multiplier="1:1" id="3hj-Rd-Dmn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty Circle" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-bg-fmd">
+                                <rect key="frame" x="37" y="-148" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oZ9-bg-fmd" secondAttribute="height" multiplier="1:1" id="os4-Yk-jw9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty Circle" translatesAutoresizingMaskIntoConstraints="NO" id="CdK-vZ-QhD">
+                                <rect key="frame" x="37" y="515" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CdK-vZ-QhD" secondAttribute="height" multiplier="1:1" id="3m2-v9-2wJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qx0-4l-DoL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="078-dZ-ZcQ"/>
+                            <constraint firstItem="oZ9-bg-fmd" firstAttribute="trailing" secondItem="qx0-4l-DoL" secondAttribute="trailing" id="7hH-Yy-rXU"/>
+                            <constraint firstItem="oZ9-bg-fmd" firstAttribute="leading" secondItem="qx0-4l-DoL" secondAttribute="leading" id="98N-Wp-AhU"/>
+                            <constraint firstItem="qx0-4l-DoL" firstAttribute="trailing" secondItem="CdK-vZ-QhD" secondAttribute="trailing" id="9mm-Aw-HDV"/>
+                            <constraint firstItem="oZ9-bg-fmd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="DPQ-FU-qhD"/>
+                            <constraint firstItem="qx0-4l-DoL" firstAttribute="leading" secondItem="CdK-vZ-QhD" secondAttribute="leading" id="jyM-o1-WMO"/>
+                            <constraint firstItem="CdK-vZ-QhD" firstAttribute="top" secondItem="qx0-4l-DoL" secondAttribute="bottom" constant="32" id="lVb-bk-aGV"/>
+                            <constraint firstItem="qx0-4l-DoL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pv4-70-7AG"/>
+                            <constraint firstItem="qx0-4l-DoL" firstAttribute="top" secondItem="oZ9-bg-fmd" secondAttribute="bottom" constant="31" id="zhS-vJ-yiN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +58,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Empty Circle" width="280" height="280"/>
+    </resources>
 </document>
